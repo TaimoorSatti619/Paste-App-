@@ -3,11 +3,24 @@ import { useParams, useSearchParams } from "react-router";
 import { addToPastes, updateToPastes } from "../redux/pasteSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Copy } from "lucide-react";
+import toast from 'react-hot-toast'; 
+
 
 const ViewPaste = () => {
   const { id } = useParams();
   const allPastes = useSelector((state) => state.paste.pastes);
   const paste = allPastes.filter((p) => p._id === id)[0];
+
+
+  // Add a loading/not found state
+  if (!paste) {
+    return (
+      <div className="w-full h-full flex items-center justify-center min-h-screen">
+        <div className="text-xl text-gray-500">Paste not found or loading...</div>
+      </div>
+    );
+  }
+
 
   return (
     <div className="w-full h-full py-10 max-w-[1200px] mx-auto px-5 lg:px-0">
