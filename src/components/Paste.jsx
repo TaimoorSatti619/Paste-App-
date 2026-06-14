@@ -81,12 +81,12 @@ const Paste = () => {
                     <div className="flex gap-2 flex-wrap sm:flex-nowrap">
                       {/* Edit */}
                       <button className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-blue-500">
-                        <a href={`/?pasteId=${paste?._id}`}>
+                        <Link to={`/?pasteId=${paste?._id}`}>
                           <PencilLine
                             className="text-black group-hover:text-blue-500"
                             size={20}
                           />
-                        </a>
+                        </Link>
                       </button>
 
                       {/* Delete */}
@@ -102,12 +102,12 @@ const Paste = () => {
 
                       {/* View */}
                       <button className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-orange-500">
-                        <a href={`/pastes/${paste?._id}`} target="_blank">
+                        <Link to={`/pastes/${paste?._id}`} target="_blank">
                           <Eye
                             className="text-black group-hover:text-orange-500"
                             size={20}
                           />
-                        </a>
+                        </Link>
                       </button>
 
                       {/* Copy */}
